@@ -1,4 +1,4 @@
-# Example 10 – POSIX Threads: Creating and Joining a Thread
+# Example 10 – Threads: Creating and Joining a Thread
 
 ## Purpose
 
@@ -67,3 +67,4 @@ Expected runtime behavior:
 - Respect the repository compilation rules while noting that pthread programs require linking with `-pthread`.
 
 This explanation follows the repository rules: the exercise is implemented in C, all explanations are in English, and the document includes Purpose, System Calls / Functions Used, How It Works, and How to Compile and Run sections.
+
