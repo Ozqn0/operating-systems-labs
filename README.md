@@ -33,7 +33,7 @@ The primary objective of this project is to provide practical implementations of
 
 The project strictly follows the required directory hierarchy. Each exercise is encapsulated in its own directory containing the source code, documentation, and binary.
 
-text
+```text
 operating-systems-labs/
 │
 ├── README.md               # Project documentation (This file)
@@ -54,6 +54,7 @@ operating-systems-labs/
     ├── main.c
     ├── explanation.md
     └── app
+```
 
 ## Exercise List & Topics
 The following table details the specific topics and system calls implemented in each exercise (based on the DexTutor curriculum).
