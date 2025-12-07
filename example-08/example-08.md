@@ -33,15 +33,6 @@ This example demonstrates process creation with `fork()` and highlights how rela
 - Standard I/O buffering may cause outputs to appear delayed or combined. Ensuring newline-terminated strings or calling `fflush(stdout)` can help make output appear when expected.
 - The child's `getppid()` will show the parent's PID only if the parent is still alive at that moment. If the parent has already exited, the kernel will reparent the child to the system reaper process (often PID 1 or a dedicated reaper), and `getppid()` will reflect that.
 
-## Recommended Improvements
-
-- Check `fork()` return value:
-  - if (p < 0) { perror("fork failed"); return 1; }
-- Use `waitpid()` in the parent if you want the parent to wait for the child and ensure deterministic sequencing:
-  - include <sys/wait.h> and call `waitpid(p, NULL, 0);` in the parent branch.
-- Use English messages in both code and error output to keep repository content consistent.
-- Add `fflush(stdout)` after `printf()` calls when demonstrating ordering to avoid surprises due to buffering.
-- Consider adding comments in the source to explain why different `sleep()` durations are used.
 
 ## How to Compile and Run
 
@@ -60,4 +51,5 @@ My child PID is: 12345
 
 Because scheduling is nondeterministic, output order may vary across runs.
 
-This explanation follows the repository rules: the implementation is in C, all explanations are in English, and the document contains Purpose, System Calls / Functions Used, How It Works, and How to Compile and Run sections.
+
+
