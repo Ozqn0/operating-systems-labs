@@ -33,17 +33,6 @@ Important runtime behaviors:
 - The parent does not wait for the child (no `wait()` call). This can leave a brief period where a defunct (zombie) child exists until the parent exits or reaps it.
 - Outputs from parent and child may interleave unpredictably.
 
-## Recommended Improvements and Notes
-
-- Check `fork()` return value for errors:
-  - if (q < 0) { perror("fork failed"); return 1; }
-- Use `pid_t` consistently (already used) and include proper error handling.
-- To ensure the parent waits for the child and reaps it, use `waitpid()` (include <sys/wait.h>):
-  - In parent: `waitpid(q, NULL, 0);`
-- Because `printf()` is line-buffered on terminals, ensure each printed message ends with `\n`. If printing without newline, call `fflush(stdout)` to force output order.
-- If you want deterministic ordering for demonstration purposes, have the parent `wait()` for the child before printing the "Common" message, or add synchronization primitives.
-- Consider adding explanatory comments in English inside the source code so readers understand process behavior.
-- Handle other possible issues like calling `fork()` in tight loops, checking resource limits, and understanding copy-on-write semantics for memory after fork.
 
 ## How to Compile and Run
 
@@ -83,4 +72,5 @@ Notes:
 - The program prints two "Common" lines because both parent and child execute that statement.
 - For clearer lab output and to meet repository guidelines, consider changing printed messages to grammatically consistent English (e.g., "I am child with pid: %d" and "I am parent with pid: %d") and add error handling as suggested.
 
-This explanation follows the repository rules: the implementation is in C, all documentation is written in English, and the document includes Purpose, System Calls / Functions Used, How It Works, and How to Compile and Run.
+
+
