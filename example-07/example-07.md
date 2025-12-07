@@ -50,15 +50,3 @@ My child PID is: 12345
 
 Note: The parent PID printed by the child will be the original parent's PID if the parent is still running; otherwise it will typically be 1 (or another reaper PID depending on the system).
 
-## Recommended Improvements and Notes
-
-- Check `fork()` return value for errors:
-  - if (p < 0) { perror("fork"); return 1; }
-- Use `waitpid()` in the parent to wait for the child if you want to avoid orphans and ensure deterministic ordering:
-  - in parent: `waitpid(p, NULL, 0);`
-- Use newline-terminated strings and/or `fflush(stdout)` to reduce surprises from stdio buffering when demonstrating ordering.
-- For clearer demonstration of reparenting, you can increase the child's sleep and decrease the parent's sleep, or explicitly `exit()` the parent after printing.
-- Remember that on modern systems `getppid()` may return the PID of a process other than 1 depending on the reaper process model (systemd or other service managers).
-- Add English comments to the source code so the behavior is clear to all students, and include error handling where appropriate.
-
-This explanation follows the repository rules: the code is C, explanations are in English, and the file includes Purpose, System Calls / Functions Used, How It Works, How to Compile and Run, and Recommended Improvements.
