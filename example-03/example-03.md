@@ -63,18 +63,5 @@ Expected output:
 - A line showing the pointer position (e.g., "Pointer is now 10.") — exact message depends on the program's printf format.
 - The 10 bytes read starting at offset 10 printed to stdout (e.g., "ABCDEFGHIJ"), followed by a newline.
 
-## Example safer changes (summary)
 
-- Use appropriate types:
-  - ssize_t n;
-  - int f;
-  - off_t f1;
-- Use O_RDONLY if only reading:
-  - f = open("seeking", O_RDONLY);
-- Check results and print English error messages:
-  - if (f < 0) { perror("open error"); return 1; }
-- Use consistent printing of off_t for portability:
-  - printf("Pointer is now %lld\n", (long long)f1);
-- Handle read returning 0 (EOF) and handle short reads if reading larger buffers.
 
-This explanation follows the repository rules: the source is C, all explanations are written in English, and the document contains Purpose, System Calls / Functions Used, How It Works, and How to Compile and Run.
