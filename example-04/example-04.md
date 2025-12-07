@@ -53,4 +53,4 @@ Expected behavior:
 - Be aware that `dup2(target)` will close the target descriptor if it is open, which may affect other parts of the program if that descriptor was used elsewhere.
 - For safer and more portable printing of descriptor values and error messages, adopt English messages and structured error handling (the repository requires English documentation).
 
-This explanation follows the repository guidelines: C implementation, English documentation, and the required explanation.md sections (Purpose, System Calls / Functions Used, How It Works, How to Compile and Run).
+
