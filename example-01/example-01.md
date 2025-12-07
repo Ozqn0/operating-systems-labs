@@ -51,6 +51,5 @@ Expected runtime behavior:
 - The program prints "Hello" followed by a line indicating the number of bytes written (usually `value of n is 5`).
 - The program then waits for input from stdin. Type up to 30 characters and press Enter; the program echoes back the bytes you typed.
 
-Notes:
-- Keep all comments and documentation in English.
-- The example uses low-level POSIX read/write; it will run on UNIX-like systems (Linux, macOS). On Windows, you need a POSIX-compatible environment (e.g., WSL or Cygwin) for the same behavior.
+
+
