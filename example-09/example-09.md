@@ -49,14 +49,3 @@ Before execl: current process PID: 12345
 If `execl()` fails (e.g., wrong path or permissions), you will see:
 execl failed: No such file or directory
 
-## Recommended Improvements and Notes
-
-- Error handling: `perror()` is appropriate for reporting `execl()` failures. Consider printing more context when needed.
-- If you want to run a command while keeping the original program running, use `fork()` + `execl()` in the child process:
-  - parent can continue, child is replaced by the new program.
-- To provide argv[] dynamically, use `execv()` or `execvp()` with an argument array.
-- To search PATH automatically, use `execlp()` or `execvp()`.
-- Remember that environment variables can be preserved or replaced depending on which exec variant is used (`execle`, `execve`).
-- Use absolute paths when you want deterministic behavior (as in this example) or validate the path before calling `execl()`.
-
-This explanation follows the repository rules: implementation in C, English documentation, and the required sections (Purpose, System Calls / Functions Used, How It Works, How to Compile and Run).
