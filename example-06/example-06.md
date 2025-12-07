@@ -62,19 +62,7 @@ My second child PID is: 12346
 I am first child havin id: 12345
 I am second child having PID: 12346
 
-## Recommended Improvements and Notes
 
-- Check return values for `fork()`:
-  - if (p < 0) { perror("fork"); return 1; }
-  - if (q < 0) { perror("fork"); return 1; }
-- Wait for both children to avoid zombies:
-  - Call `waitpid(p, NULL, 0);` and `waitpid(q, NULL, 0);` in the parent, or loop with `while (wait(NULL) > 0) { }` until there are no children left.
-- Ensure printed messages are grammatically consistent and in English (repository rule). For example:
-  - "I am child with PID: %d\n" and "My parent PID is: %d\n"
-- Use `fflush(stdout)` after prints when deterministic ordering is needed for demonstration.
-- Consider handling `waitpid()` errors and checking termination status if you need to know whether a child exited normally.
-- Use `pid_t` consistently for process IDs (already used) and include proper error handling and comments inside the source for clarity.
-- Remember that creating many children rapidly requires resource checks (process limits), and `fork()` may fail under heavy load.
 
 
 
