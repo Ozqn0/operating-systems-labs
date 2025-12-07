@@ -73,4 +73,5 @@ Expected behavior on success:
   - if (write(fd1, buffer, n) != n) { perror("write"); }
 - Close descriptors: `close(fd); close(fd1);`
 
-This documentation follows the repository rules: C implementation, English explanations, and an explanation.md structure that covers Purpose, System Calls / Functions Used, How It Works, and How to Compile and Run.
+
+
