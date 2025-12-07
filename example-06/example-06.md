@@ -76,4 +76,5 @@ I am second child having PID: 12346
 - Use `pid_t` consistently for process IDs (already used) and include proper error handling and comments inside the source for clarity.
 - Remember that creating many children rapidly requires resource checks (process limits), and `fork()` may fail under heavy load.
 
-This file (explanation.md) is prepared according to the repository rules (English text, required headings, compile/run instructions). I created the explanation for example-06; the next step is for you to add this file to example-06/explanation.md in your repository.
+
+
