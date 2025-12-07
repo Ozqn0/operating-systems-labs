@@ -42,8 +42,6 @@ Important behavior details:
 - Close file descriptors with `close(fd)` and `close(fd1)` when finished to avoid resource leaks.
 - Consider reading up to `sizeof(buffer)` (e.g., `read(fd, buffer, sizeof(buffer))`) instead of a hard-coded `10` if you intend to use the full buffer.
 - Use an appropriate file creation mode (e.g., `0644`) unless `0642` is intentional. Remember the process umask may further restrict permissions.
-- To ensure the target file is truncated (overwritten) each run, add `O_TRUNC` to the flags: `O_CREAT | O_WRONLY | O_TRUNC`.
-- If you want to append to the target file instead of overwriting, use `O_APPEND`.
 - Add error messages (e.g., using `perror()` or printing `strerror(errno)`) to help debugging.
 
 ## How to Compile and Run
@@ -72,6 +70,7 @@ Expected behavior on success:
   - if (fd1 < 0) { perror("open target"); close(fd); return 1; }
   - if (write(fd1, buffer, n) != n) { perror("write"); }
 - Close descriptors: `close(fd); close(fd1);`
+
 
 
 
